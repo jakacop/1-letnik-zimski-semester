@@ -1,6 +1,6 @@
 # 1-letnik-zimski-semester
 
-Pred vami je zbirka zapiskov in samostojnega/skupinskega dela, ki je nastala tekom obiskovanjem predavanj študija zimskega semestra prvega letnika študija Bibliotekarstvo in informacijska znanost na Filozofski fakulteti v Ljubljani v šolskem letu 2024/2025.
+Pred vami je zbirka zapiskov in samostojnega/skupinskega dela, ki je nastala tekom obiskovanja predavanj študija zimskega semestra prvega letnika študija *Bibliotekarstvo in informacijska znanost* na Filozofski fakulteti v Ljubljani v šolskem letu 2024/2025.
 
 Zapiski vključujejo povzetke, parafraze ter citate vsebin obravnavanih na predavanjih, medtem ko so samostojna oziroma skupinska dela rezultat nalog, dodeljenih tekom semestra. Zapiski so urejeni/poimenovani po datumu predavanja, datum je oblike YYYY.MM.DD in se nahaja na začetku imen datotek. Znaki za manjkajoče besedilo v zapiskih pomenijo, da se dodatna snov nahaja na prosojnicah, uporabljenih pri predmetu. Vijolična oz. roza barva v zapiskih pa označujeta snov, ki se pogosto pojavi na izpitu.
 
