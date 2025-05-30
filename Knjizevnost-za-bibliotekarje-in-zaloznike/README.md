@@ -1,4 +1,4 @@
-# Knjizevnost za bibliotekarje in zaloznike
+# Književnost za bibliotekarje in založnike
 
 Pred vami je zbirka zapiskov in samostojnega/skupinskega dela, ki je nastala tekom obiskovanja predmeta *Književnost za bibliotekarje in založnike* pri profesorju dr. Andreju Blatniku v študijskem letu 2024/2025.
 
