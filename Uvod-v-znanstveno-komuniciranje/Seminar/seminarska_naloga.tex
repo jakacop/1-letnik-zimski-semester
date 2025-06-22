@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage[margin=25mm]{geometry}
+\usepackage{titling}
+\usepackage{fancyhdr}
+\usepackage[hidelinks
+]{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{color,soul}
+\usepackage{enumitem}
+
+\usepackage{xcolor} %Lepši linki!!
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\AddToHook {shipout/lastpage} {\gdef\@currentHref{\@currentHpage}\label{shipout-lastpage:lastpage}} %številka zadnje strani iz hyperref-a!
+
+\newtheorem*{komentar}{Komentar} %okolje za neoznačene opombe!
+\newtheorem{opomba}{Opomba}
+
+%\usepackage{indentfirst}    %Prvi odstavek je zamaknjen!
+
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlength{\headheight}{15pt}
+
+\usepackage[slovenian=quotes]{csquotes}
+\usepackage[%
+    backend=biber,
+    style=apa,
+    uniquename=false, %Odstrani razlikovanje istih priimkov -- \parencite je dodal kratice imen na primer!
+]{biblatex}
+
+\DeclareLanguageMapping{slovene}{slovene-apa}
+\DeclareFieldFormat{urldate}{Pridobljeno #1 s} %namesto vejice imamo 
+
+%Odstranjena vejica pred &!
+\makeatletter
+\renewcommand*{\apablx@ifrevnameappcomma}[2]{#2}
+\makeatother
+
+%Zamenjan & z in!
+\DeclareNameFormat{labelname}{%
+  \nameparts{#1}%
+  \usebibmacro{name:family-given}
+    {\namepartfamily}
+    {\namepartgiven}
+    {\namepartprefix}
+    {\namepartsuffix}%
+  \usebibmacro{name:andothers}}
+
+\DeclareDelimFormat[bib]{finalnamedelim}{\addspace in\space}
+
+%\DefineBibliographyExtras{slovene}{%
+%  \let\finalandcomma=\empty
+%}
+
+%\renewbibmacro*{journal+issuetitle}{%
+%  \usebibmacro{journal}%
+%  \setunit*{\addspace}%
+%  \printfield{volume}%
+%  \printfield{number}%
+%  \setunit{\addcomma\addspace}%
+%  \printfield{eid}%
+%  \newunit\newblock
+%  \usebibmacro{issuename}%
+%  \newunit}
+
+%zamenjan in sod. z idr.!
+\DefineBibliographyStrings{slovene}{
+  andothers = {idr\adddot},    % replaces "et al." / "in sod." with "idr."
+}
+
+%Samo priimki v citiranju v besedilu!!
+\DeclareNameFormat{labelname}{%
+  \ifnumequal{\value{uniquename}}{0}
+    {\usebibmacro{name:family}
+       {\namepartfamily}
+       {\namepartgiven}
+       {\namepartprefix}
+       {\namepartsuffix}}
+    {\usebibmacro{name:family-given}
+       {\namepartfamily}
+       {\namepartgiven}
+       {\namepartprefix}
+       {\namepartsuffix}}%
+  \usebibmacro{name:andothers}}
+
+\makeatletter
+\DeclareCiteCommand{\cbx@textcite}
+  {\usebibmacro{cite:init}}
+  {\usebibmacro{citeindex}%
+   \DeclareNameAlias{labelname}{family}%
+   \usebibmacro{textcite}}
+  {}
+  {\usebibmacro{textcite:postnote}}
+\makeatother
+
+\DeclareNameFormat{family}{%
+  \usebibmacro{name:family}
+    {\namepartfamily}
+    {\namepartgiven}
+    {\namepartprefix}
+    {\namepartsuffix}%
+  \usebibmacro{name:andothers}}
+
+%Namesto & je in v parencite!
+\DeclareDelimFormat[parencite]{multinamedelim}{\addspace in\space}
+\DeclareDelimAlias[parencite]{finalnamedelim}{multinamedelim}
+
+\addbibresource{viri.bib}
+
+%\setlength{\parindent}{0pt}    %zamik odstavkov
+
+%\setlength{\droptitle}{-5em}
+%\setlength{\headheight}{15pt}
+
+\fancyhead[L]{Uvod v znanstveno komuniciranje}
+\fancyhead[R]{Jaka Čop}
+\fancyfoot[L]{seminarska\_naloga.tex}
+\fancyfoot[R]{\texttt{\href{mailto:jaka.cop@gmail.com}{jaka.cop@gmail.com}}}
+
+\fancyfoot[C]{\thepage\ / \pageref*{shipout-lastpage:lastpage}}
+
+\fancypagestyle{plain}{%
+}
+
+%\pagenumbering{gobble}
+
+\title{Seminarska naloga
+%\vspace{-1.5ex}
+} %Če je še avtor vmes je idealen zamik -1.5ex!!!
+
+\author{Jaka Čop}
+
+\date{\today}
+
+\begin{document}
+
+\pagestyle{fancy}
+
+\maketitle
+\nocite{*}
+
+Ideja odprte znanosti ni nov koncept. Pojavila se je že sredi 17. st., ko so začeli izhajati prvi znanstveni časopisi \parencites{Grand}{Pusnik}. \textcite{Pusnik} pa ugotavljata, da je pravi razmah odprta znanost doživela prav zdaj, v dobi digitalizacije, ki je pravzaprav postavila trdne temelje odprti znanosti. S postopnim spreminjanjem sveta in pomena znanosti so se spreminjale tudi vloge knjižnic -- predvsem visokošolskih, ki že stoletja podpirajo univerze in druge znanstvene in akademske ustanove v njihovem delovanju \parencite{Tzanova}. \textcite[str. 11]{Liu} na podlagi raziskav pišeta, da so trenutni poskusi vpeljave odprte znanosti v prakso na ravni visokošolskih knjižnic usmerjeni predvsem v štiri področja: "`odprti dostop, upravljanje s podatki raziskav, odprte študijske vsebine in občanska znanost."'
+
+Seveda pa odpiranje znanosti javnosti ni brez težav. Veliko visokošolskih knjižnic je izrazilo skrbi glede implementacije odprte znanosti v praksi. Te pomisleke lahko v grobem razdelimo v dve skupini: pomanjkanje notranje in pomanjkanje zunanje podpore. V prvi so aktualni problemi predvsem: pomanjkanje osebja, premalo financiranja, pa tudi preslaba infrastruktura; medtem ko se v drugo kategorijo uvrščajo: pomanjkanje podpore akademske oz. znanstvene skupnosti, pomanjkanje izdatnih in jasno določenih ustanovnih pravil in smernic, nenazadnje pa tudi še vedno nerešene težave okoli avtorskih pravic \parencites{Liu}. \textcite{BawdenRobinson} pa izpostavljata tudi pomen različnih mnenj oz. trenj v procesu komuniciranja znanstvenikov. V okolju proste in odprte komunikacije med znanstveniki bi po njuno tako veliko lažje krožili tudi lažni oz. vsaj nepreverjeni podatki.  Zanimivo je, da skoraj nihče ne omenja združevanja podatkov kot problem odprte znanosti, temveč kot prednost. \textcite{Minutephysics} nas v videu odlično opozori na potencialne nevarnosti kombiniranja (ali razdruževanja/deljenja) podatkov, ki nas lahko hitro, hote ali nehote, privede do napačnih zaključkov.
+
+Kljub temu  so napredki vidni na več področjih. Evropska Unija se z aktivnim sprejemanjem aktov očitno zavzema za čim širšo uveljavitev odprte znanosti \parencite{EuropeanCommission}, \textcite{Liu} pa prav tako ugotavljata, da se vzpostavlja vse več repozitorijev na ravni različnih izobraževalnih ustanov, kar je tudi eden od možnih načinov posrednega financiranja odprte znanosti. Eden primerov takih ustanov je tudi reška univerza, ki je v zadnjih nekaj letih sprejela nemalo resolucij prav z namenom uvajanja načel odprte znanosti na ravni univerze. Med drugim tudi obveznost objavljanja znanstvenih del v repozitorijih \parencite{DoroticMalic}.
+
+Kot poudarita \textcite[str. 26]{Pusnik} imajo knjižnice priložnost "`s svojo proaktivnostjo doseči svojo uveljavitev kot pomembi partnerji oziroma deležniki pri ustvarjanju razmer za izvajanje znanstvenoraziskovalne dejavnosti po načelih odprte znanosti."' Kot lahko vidimo je odprta znanost od svojih začetkov prišla že zelo daleč. Toda čaka jo še dolga pot, knjižnice pa imajo res priložnost odigrati pri prehodu znanosti, iz zaprte v odprto, ključno vlogo.
+
+\newpage
+\printbibliography[
+    heading=bibintoc,
+    title={\refname\label{sec:Literatura}}
+]
+
+\end{document}
